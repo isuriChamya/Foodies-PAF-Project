@@ -57,7 +57,7 @@ const FollowUserProfile = () => {
       // Update followers count optimistically
       setFollowers(prev => {
         if (newFollowingStatus) {
-          return [...prev, { id: currentUserId }]; // Add current user to followers
+          return [...prev, { id: currentUserId }]; // Add  user to followers
         } else {
           return prev.filter(follower => follower.id !== currentUserId); // Remove current user
         }
