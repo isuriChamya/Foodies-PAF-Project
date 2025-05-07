@@ -45,7 +45,7 @@ const ChatHomePage = () => {
 
         if (convResponse.data) {
           setConversation(convResponse.data);
-          // Load messages for this conversation
+          // Load messages for current conversation
           const messagesResponse = await chatApi.getConversationMessages(
             convResponse.data.id
           );
