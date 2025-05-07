@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-8">
           <Link 
             to={"/"} 
-            className="text-black hover:text-orange-100 transition-colors relative group"
+            className="text-white hover:text-orange-100 transition-colors relative group"
           >
             <span className="relative">
               Posts
