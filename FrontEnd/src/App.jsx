@@ -44,7 +44,7 @@ const App = () => {
             <Route path="/profile/:id" element={<FollowUserProfile />} />
 
             {/* NOTIFICATIONS */}
-            <Route path="/notifications" element={<NotificationsPage />} />
+            <Route path="/notifications" element={<followUserProfile />} />
 
             {/* PLANS */}
             <Route path="/plans" element={<PlansPage />} />
