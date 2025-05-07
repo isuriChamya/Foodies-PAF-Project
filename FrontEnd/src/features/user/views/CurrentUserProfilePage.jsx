@@ -148,7 +148,7 @@ const CurrentUserProfilePage = () => {
 
     return (
         <div className="max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg mt-8">
-            <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">Edit Profile</h2>
+            <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center"> Profile</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="flex items-center justify-center space-x-4 mb-6">
                     <img 
