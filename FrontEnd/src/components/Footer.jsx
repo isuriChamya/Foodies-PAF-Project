@@ -59,7 +59,7 @@ const Footer = () => {
           <img className="w-6 h-6 invert" src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/youtube.svg" alt="YouTube" />
           <img className="w-6 h-6 invert" src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub" />
         </div>
-        <p>©{year} | Designed By: Pooja Nahella. All rights reserved.</p>
+        <p>©{year} | Designed By: SMAI. All rights reserved.</p>
       </div>
     </footer>
   );
