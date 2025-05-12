@@ -47,7 +47,7 @@ const Footer = () => {
             GET IN TOUCH
           </button>
           <div className="mt-4 font-bold">YOU CALL US</div>
-          <div>0124-64XXXX</div>
+          <div>01122562378</div>
         </div>
       </div>
 
