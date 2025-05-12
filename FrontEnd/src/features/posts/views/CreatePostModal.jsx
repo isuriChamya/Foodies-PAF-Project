@@ -116,7 +116,7 @@ const CreatePostModal = ({ onRefresh }) => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="mt-6 mb-12 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-orange-400 to-orange-500 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+        className="mt-6 mb-12 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-blue-200 to-blue-500 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
       >
         Create New Post
       </button>
