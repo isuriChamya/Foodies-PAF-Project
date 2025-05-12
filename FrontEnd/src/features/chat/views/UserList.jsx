@@ -3,7 +3,7 @@ import React from 'react';
 const UserList = ({ users, selectedUser, onSelectUser }) => {
   return (
     <div className="h-full overflow-y-auto">
-      <div className="p-4 bg-gradient-to-r from-orange-400 to-orange-500 text-white">
+      <div className="p-4 bg-gradient-to-r from-blue-400 to-blue-500 text-white">
         <h1 className="text-xl font-bold">Chats</h1>
       </div>
       

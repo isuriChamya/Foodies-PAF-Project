@@ -266,7 +266,7 @@ const EditProgressPage = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
       </div>
     );
   }
@@ -275,7 +275,7 @@ const EditProgressPage = () => {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <ToastContainer position="top-right" autoClose={3000} />
       
-      <h1 className="text-3xl font-bold text-orange-700 mb-6">Edit Progress Update</h1>
+      <h1 className="text-3xl font-bold text-blue-700 mb-6">Edit Progress Update</h1>
       
       <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 rounded-lg shadow-md">
         {/* Basic Information */}
@@ -388,7 +388,7 @@ const EditProgressPage = () => {
               name="isPublic"
               checked={formData.isPublic}
               onChange={handleInputChange}
-              className="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded"
+              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
             />
             <label className="ml-2 block text-sm text-gray-700">
               Make this progress update public
@@ -531,7 +531,7 @@ const EditProgressPage = () => {
           </button>
           <button
             type="submit"
-            className={`px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+            className={`px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             disabled={isSubmitting}
           >
             {isSubmitting ? (

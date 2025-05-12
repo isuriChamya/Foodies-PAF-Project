@@ -61,7 +61,7 @@ const ProgressPage = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
       </div>
     );
   }
@@ -71,10 +71,10 @@ const ProgressPage = () => {
       <ToastContainer position="top-right" autoClose={3000} />
 
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-orange-700">Progress Updates</h1>
+        <h1 className="text-3xl font-bold text-blue-700">Progress Updates</h1>
         <button
           onClick={() => navigate("/create-progress")}
-          className="px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700"
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         >
           + New Update
         </button>
@@ -87,7 +87,7 @@ const ProgressPage = () => {
           </p>
           <button
             onClick={() => navigate("/create-progress")}
-            className="mt-4 px-4 py-2 bg-orange-600 text-white rounded-md hover:bg-orange-700"
+            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
           >
             Create Your First Update
           </button>
@@ -125,7 +125,7 @@ const ProgressPage = () => {
                <div className="flex items-center gap-2">
                  <button
                    onClick={() => navigate(`/edit-progress/${update.id}`)}
-                   className="text-orange-600 hover:text-orange-800"
+                   className="text-blue-600 hover:text-blue-800"
                    title="Edit"
                  >
                    <PencilIcon className="w-5 h-5" />
@@ -152,7 +152,7 @@ const ProgressPage = () => {
                      : update.type === "DAILY_UPDATE"
                      ? "bg-blue-100 text-blue-700"
                      : update.type === "CHALLENGE"
-                     ? "bg-orange-100 text-orange-700"
+                     ? "bg-blue-100 text-blue-700"
                      : "bg-gray-100 text-gray-700"
                  }`}
                >

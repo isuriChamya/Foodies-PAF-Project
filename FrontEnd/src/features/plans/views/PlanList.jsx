@@ -5,7 +5,7 @@ const PlanList = ({ plans }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="p-6 bg-gradient-to-r from-orange-50 via-rose-50 to-white min-h-screen">
+    <div className="p-6 bg-gradient-to-r from-blue-50 via-rose-50 to-white min-h-screen">
       <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
         Learning Plans
       </h1>
@@ -13,13 +13,13 @@ const PlanList = ({ plans }) => {
         {plans.map((plan) => (
           <div
             key={plan.id}
-            className="backdrop-blur-md bg-white/70 border border-orange-100 rounded-2xl shadow-lg transition-all hover:scale-[1.03] hover:shadow-xl duration-300 cursor-pointer overflow-hidden"
+            className="backdrop-blur-md bg-white/70 border border-blue-100 rounded-2xl shadow-lg transition-all hover:scale-[1.03] hover:shadow-xl duration-300 cursor-pointer overflow-hidden"
             onClick={() => {
               navigate("/plans/" + plan.id);
             }}
           >
             {/* Header */}
-            <div className="p-5 bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-t-2xl">
+            <div className="p-5 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-t-2xl">
               <h2 className="text-2xl font-bold tracking-wide">{plan.title}</h2>
               <p className="text-sm mt-1 opacity-90">
                 {plan.category} &bull; {plan.skillLevel}
@@ -44,7 +44,7 @@ const PlanList = ({ plans }) => {
                 {plan.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-xs font-semibold"
+                    className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold"
                   >
                     #{tag}
                   </span>

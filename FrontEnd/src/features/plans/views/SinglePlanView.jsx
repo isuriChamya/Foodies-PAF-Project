@@ -59,13 +59,13 @@ const SinglePlanView = () => {
   }
 
   return (
-    <div className="px-6 py-10 bg-gradient-to-tr from-orange-50 via-rose-50 to-white min-h-screen">
+    <div className="px-6 py-10 bg-gradient-to-tr from-blue-50 via-rose-50 to-white min-h-screen">
       {/* Plan Header */}
-      <div className="bg-white rounded-2xl shadow-xl p-8 mb-10 border border-orange-100">
+      <div className="bg-white rounded-2xl shadow-xl p-8 mb-10 border border-blue-100">
         <h1 className="text-4xl font-extrabold text-gray-800 mb-2">{plan.title}</h1>
         <p className="text-sm text-gray-500">Created on: {new Date(plan.createdAt).toLocaleDateString()}</p>
         <div className="mt-2 flex flex-wrap gap-3 text-sm text-gray-600">
-          <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full">{plan.category}</span>
+          <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">{plan.category}</span>
           <span className="bg-rose-100 text-rose-700 px-3 py-1 rounded-full">{plan.skillLevel}</span>
         </div>
       </div>
@@ -111,7 +111,7 @@ const SinglePlanView = () => {
         <h2 className="text-2xl font-semibold mb-3 text-gray-800">🏷️ Tags</h2>
         <div className="flex flex-wrap gap-2">
           {plan.tags.map((tag, i) => (
-            <span key={i} className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-medium">
+            <span key={i} className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-medium">
               {tag}
             </span>
           ))}
