@@ -5,8 +5,8 @@ const Footer = () => {
 
   const styles = {
     footer: {
-      background: "linear-gradient(to right, #991b1b, #facc15, #22c55e)", // deep red to yellow to green
-      color: "#ffffff",
+      background: "#facc15", // deep red to yellow to green
+      color: "#4f9e32",
       paddingTop: "3rem",
       paddingBottom: "2rem",
       position: "relative",
@@ -18,7 +18,7 @@ const Footer = () => {
       left: 0,
       width: "100%",
       height: "80px",
-      background: "white",
+      background: "#991b1b",
       borderBottomRightRadius: "100% 20%",
       borderBottomLeftRadius: "100% 20%",
       zIndex: 1,
@@ -49,7 +49,7 @@ const Footer = () => {
     bottomBar: {
       marginTop: "2rem",
       textAlign: "center",
-      borderTop: "1px solid rgba(255,255,255,0.2)",
+      borderTop: "1px solid rgba(191, 178, 178, 0.2)",
       paddingTop: "1rem",
       fontSize: "0.8rem",
     },
