@@ -11,63 +11,58 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="w-full bg-gradient-to-r from-red-700 via-yellow-400 to-green-500 rounded-xl px-6 py-3 shadow-lg backdrop-blur-sm">
-      <div className="flex items-center justify-between">
+    <div className="w-full bg-gradient-to-r from-red-700 via-yellow-400 to-green-500 px-8 py-4 rounded-b-2xl shadow-xl backdrop-blur-md">
+      <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo */}
         <Link to={"/"}>
-          <div className="text-white text-2xl font-bold tracking-wider hover:scale-105 transition-transform">
+          <div className="text-white text-3xl font-extrabold tracking-wide hover:scale-105 transition-transform">
             FOODIE
           </div>
         </Link>
 
         {/* Navigation Items */}
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-6 text-white font-medium">
           <Link
             to={"/"}
-            className="text-white hover:text-yellow-100 transition-colors relative group"
+            className="relative group transition-all"
           >
-            <span className="relative">
-              Posts
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-            </span>
+            Posts
+            <span className="block absolute -bottom-1 left-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
           <Link
             to={"/plans"}
-            className="text-white hover:text-yellow-100 transition-colors relative group"
+            className="relative group transition-all"
           >
-            <span className="relative">
-              Plans
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-            </span>
+            Plans
+            <span className="block absolute -bottom-1 left-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
           <Link
             to={"/progress"}
-            className="text-white hover:text-yellow-100 transition-colors relative group"
+            className="relative group transition-all"
           >
-            <span className="relative">
-              Progresses
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform"></span>
-            </span>
+            Progresses
+            <span className="block absolute -bottom-1 left-0 h-0.5 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
           </Link>
 
           <Link
             to={"/notifications"}
-            className="text-white hover:text-green-100 transition-colors p-2 rounded-full hover:bg-white/10"
+            className="hover:bg-white/20 p-2 rounded-full transition-colors"
           >
-            <Bell className="w-5 h-5" />
+            <Bell className="w-5 h-5 text-white" />
           </Link>
+
           <Link
             to={"/chat"}
-            className="text-white hover:text-green-100 transition-colors p-2 rounded-full hover:bg-white/10"
+            className="hover:bg-white/20 p-2 rounded-full transition-colors"
           >
-            <MessageCircle className="w-5 h-5" />
+            <MessageCircle className="w-5 h-5 text-white" />
           </Link>
 
           <Link
             to={isLoggedIn ? "/profile" : "/login"}
-            className="bg-white text-red-600 font-medium px-6 py-2 rounded-full hover:bg-yellow-50 transition-all hover:shadow-md"
+            className="ml-2 bg-white text-red-700 font-semibold px-5 py-2 rounded-full hover:bg-yellow-50 shadow-md transition-all"
           >
             {isLoggedIn ? "Profile" : "Login"}
           </Link>
