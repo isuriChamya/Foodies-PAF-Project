@@ -16,7 +16,7 @@ public class UserPostController {
     @Autowired
     private UserPostService userPostService;
 
-    // Create a new post for new food recipe
+    // Create a new post
     @PostMapping
     public ResponseEntity<UserPostDto> createPost(@RequestParam String userId, @RequestBody CreateUpdatePostDto createUpdatePostDto) {
         UserPostDto createdPost = userPostService.createPost(userId, createUpdatePostDto);
