@@ -125,7 +125,7 @@ const CreatePostModal = ({ onRefresh }) => {
         isOpen={isOpen}
         onRequestClose={() => setIsOpen(false)}
         contentLabel="Create Post Modal"
-        className="bg-white rounded-lg shadow-xl max-w-md w-full p-6 mx-auto mt-20 outline-none"
+        className="bg-blue-200 rounded-lg shadow-xl max-w-md w-full p-6 mx-auto mt-20 outline-none"
         overlayClassName="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50"
       >
         <div className="flex justify-between items-center mb-4">
