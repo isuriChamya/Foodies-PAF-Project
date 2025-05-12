@@ -5,7 +5,7 @@ const Footer = () => {
 
   const styles = {
     footer: {
-      backgroundColor: "#004d66",
+      background: "linear-gradient(to right, #991b1b, #facc15, #22c55e)", // deep red to yellow to green
       color: "#ffffff",
       paddingTop: "3rem",
       paddingBottom: "2rem",
@@ -62,12 +62,14 @@ const Footer = () => {
     icon: {
       width: "24px",
       height: "24px",
+      filter: "brightness(0) invert(1)", // ensure visibility on colored bg
     },
     button: {
       marginTop: "0.5rem",
       padding: "0.5rem 1rem",
-      backgroundColor: "#007b9e",
-      color: "#ffffff",
+      backgroundColor: "#fff",
+      color: "#16a34a", // vibrant green text
+      fontWeight: "bold",
       border: "none",
       borderRadius: "4px",
       cursor: "pointer",
