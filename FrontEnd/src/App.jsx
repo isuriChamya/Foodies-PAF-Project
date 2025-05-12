@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"
 import Login from "./features/auth/views/Login";
 import OAuth2RedirectHandler from "./features/auth/views/OAuth2RedirectHandler";
 import RegisterPage from "./features/auth/views/RegisterPage";
@@ -62,6 +63,7 @@ const App = () => {
           </Routes>
         </div>
       </BrowserRouter>
+         <Footer />
 
       <ToastContainer />
     </div>
