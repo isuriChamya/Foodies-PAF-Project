@@ -20,7 +20,7 @@ const PlansPage = () => {
   return (
     <div>
     <div className="w-full flex justify-end">
-    <Link to={"/create-plan"} class="mt-6 bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
+    <Link to={"/create-plan"} class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Create Plan
       </Link>
     </div>
