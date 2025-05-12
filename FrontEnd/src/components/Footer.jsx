@@ -5,10 +5,10 @@ const Footer = () => {
 
   const styles = {
     footer: {
-      background: "linear-gradient(to right, #991b1b, #facc15, #22c55e)",
+      background: "linear-gradient(to right, #991b1b, #facc15, #22c55e)", // deep red to yellow to green
       color: "#ffffff",
-      paddingTop: "1.5rem", // Reduced from 3rem
-      paddingBottom: "1rem", // Reduced from 2rem
+      paddingTop: "3rem",
+      paddingBottom: "2rem",
       position: "relative",
       marginTop: "auto",
     },
@@ -17,7 +17,7 @@ const Footer = () => {
       top: 0,
       left: 0,
       width: "100%",
-      height: "40px", // Reduced from 80px
+      height: "80px",
       background: "white",
       borderBottomRightRadius: "100% 20%",
       borderBottomLeftRadius: "100% 20%",
@@ -27,53 +27,52 @@ const Footer = () => {
       display: "flex",
       flexWrap: "wrap",
       justifyContent: "space-around",
-      padding: "0 1rem", // slightly reduced horizontal padding
+      padding: "0 2rem",
       zIndex: 2,
       position: "relative",
     },
     column: {
       flex: "1 1 200px",
-      marginBottom: "1rem", // Reduced from 1.5rem
+      marginBottom: "1.5rem",
     },
     heading: {
       fontWeight: "bold",
-      marginBottom: "0.5rem", // Reduced from 1rem
+      marginBottom: "1rem",
     },
     link: {
       color: "#ffffff",
       display: "block",
-      marginBottom: "0.25rem", // Reduced spacing between links
+      marginBottom: "0.5rem",
       textDecoration: "none",
-      fontSize: "0.85rem", // Slightly smaller
+      fontSize: "0.9rem",
     },
     bottomBar: {
-      marginTop: "1rem", // Reduced from 2rem
+      marginTop: "2rem",
       textAlign: "center",
       borderTop: "1px solid rgba(255,255,255,0.2)",
-      paddingTop: "0.5rem", // Reduced from 1rem
-      fontSize: "0.75rem", // Slightly smaller text
+      paddingTop: "1rem",
+      fontSize: "0.8rem",
     },
     iconBar: {
-      marginTop: "0.5rem", // Reduced
+      marginTop: "1rem",
       display: "flex",
       justifyContent: "center",
-      gap: "0.75rem", // slightly reduced gap
+      gap: "1rem",
     },
     icon: {
-      width: "20px", // Slightly smaller
-      height: "20px",
-      filter: "brightness(0) invert(1)",
+      width: "24px",
+      height: "24px",
+      filter: "brightness(0) invert(1)", // ensure visibility on colored bg
     },
     button: {
-      marginTop: "0.25rem", // Reduced
-      padding: "0.4rem 0.75rem",
+      marginTop: "0.5rem",
+      padding: "0.5rem 1rem",
       backgroundColor: "#fff",
-      color: "#16a34a",
+      color: "#16a34a", // vibrant green text
       fontWeight: "bold",
       border: "none",
       borderRadius: "4px",
       cursor: "pointer",
-      fontSize: "0.85rem",
     },
   };
 
@@ -117,7 +116,7 @@ const Footer = () => {
           <div style={styles.heading}>LET'S CHAT</div>
           <div>Have a support question?</div>
           <button style={styles.button}>GET IN TOUCH</button>
-          <div style={{ marginTop: "0.5rem", fontWeight: "bold" }}>YOU CALL US</div>
+          <div style={{ marginTop: "1rem", fontWeight: "bold" }}>YOU CALL US</div>
           <div>0124-64XXXX</div>
         </div>
       </div>
