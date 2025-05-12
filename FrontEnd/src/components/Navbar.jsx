@@ -11,7 +11,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className="w-full bg-gradient-to-r from-red-700 via-yellow-400 to-green-500 px-8 py-4 rounded-b-2xl shadow-xl backdrop-blur-md">
+    <div className="w-full bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 px-8 py-4 rounded-b-2xl shadow-xl backdrop-blur-md">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo */}
         <Link to={"/"}>
@@ -62,7 +62,7 @@ const Navbar = () => {
 
           <Link
             to={isLoggedIn ? "/profile" : "/login"}
-            className="ml-2 bg-white text-red-700 font-semibold px-5 py-2 rounded-full hover:bg-yellow-50 shadow-md transition-all"
+            className="ml-2 bg-white text-blue-700 font-semibold px-5 py-2 rounded-full hover:bg-blue-100 shadow-md transition-all"
           >
             {isLoggedIn ? "Profile" : "Login"}
           </Link>
