@@ -25,7 +25,7 @@ public class UserRelationship {
         this.updatedAt = new Date();
     }
 
-    // Getters and Setters
+    // getters and setters
     public String getId() {
         return id;
     }
