@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="relative bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 text-white pt-16 pb-8">
       {/* Wave top */}
-      <div className="absolute top-0 left-0 w-full h-20 bg-blue-900 rounded-b-[100%] z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-20 bg-blue-800 rounded-b-[100%] z-0"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-wrap justify-between text-sm">
         {/* Column 1 */}
