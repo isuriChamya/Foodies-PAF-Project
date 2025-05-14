@@ -6,7 +6,7 @@ const PlanList = ({ plans }) => {
 
   return (
     <div className="p-6 bg-gradient-to-r from-blue-50 via-rose-50 to-white min-h-screen">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+      <h1 className="text-3xl font-bold text-center text-blue-900 mb-8">
         Learning Plans
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
