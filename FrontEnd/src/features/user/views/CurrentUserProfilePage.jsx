@@ -148,7 +148,7 @@ const CurrentUserProfilePage = () => {
 
     return (
         <div className="max-w-2xl mx-auto p-8 bg-white rounded-lg shadow-lg mt-8">
-            <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">Edit Profile</h2>
+            <h2 className="text-3xl font-extrabold text-blue-900 mb-8 text-center">Edit Profile</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="flex items-center justify-center space-x-4 mb-6">
                     <img 
@@ -166,7 +166,7 @@ const CurrentUserProfilePage = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">First Name</label>
+                        <label className="block text-sm font-medium text-blue-800">First Name</label>
                         <input
                             type="text"
                             name="firstName"
@@ -180,7 +180,7 @@ const CurrentUserProfilePage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Last Name</label>
+                        <label className="block text-sm font-medium text-blue-800">Last Name</label>
                         <input
                             type="text"
                             name="lastName"
@@ -194,7 +194,7 @@ const CurrentUserProfilePage = () => {
                     </div>
 
                     <div className="col-span-2">
-                        <label className="block text-sm font-medium text-gray-700">Bio</label>
+                        <label className="block text-sm font-medium text-blue-800">Bio</label>
                         <textarea
                             name="bio"
                             value={formData.bio}
@@ -205,7 +205,7 @@ const CurrentUserProfilePage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Contact Number</label>
+                        <label className="block text-sm font-medium text-blue-800">Contact Number</label>
                         <input
                             type="text"
                             name="contactNumber"
@@ -219,7 +219,7 @@ const CurrentUserProfilePage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Gender</label>
+                        <label className="block text-sm font-medium text-blue-800">Gender</label>
                         <select
                             name="gender"
                             value={formData.gender}
@@ -234,7 +234,7 @@ const CurrentUserProfilePage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Address</label>
+                        <label className="block text-sm font-medium text-blue-800">Address</label>
                         <input
                             type="text"
                             name="address"
@@ -245,7 +245,7 @@ const CurrentUserProfilePage = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Birthday</label>
+                        <label className="block text-sm font-medium text-blue-800">Birthday</label>
                         <input
                             type="date"
                             name="birthday"
@@ -298,7 +298,7 @@ const CurrentUserProfilePage = () => {
                     <button
                         type="submit"
                         disabled={loading}
-                        className={`inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 ${
+                        className={`inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 ${
                             loading ? 'opacity-75 cursor-not-allowed' : ''
                         }`}
                     >
