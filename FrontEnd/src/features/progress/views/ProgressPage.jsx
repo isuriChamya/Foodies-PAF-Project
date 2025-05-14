@@ -3,7 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProgressUpdateApi from "../api/progressApi";
-import { PencilIcon, TrashIcon,ClockIcon,StarIcon, Workflow,CheckCircleIcon } from "lucide-react";
+import {
+  PencilIcon,
+  TrashIcon,
+  ClockIcon,
+  StarIcon,
+  Workflow,
+  CheckCircleIcon,
+} from "lucide-react";
 
 const ProgressPage = () => {
   const navigate = useNavigate();
@@ -11,7 +18,10 @@ const ProgressPage = () => {
   const [progressUpdates, setProgressUpdates] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch progress updates on component mount
+  // Modal state
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
+
   useEffect(() => {
     const fetchProgressUpdates = async () => {
       try {
@@ -28,25 +38,25 @@ const ProgressPage = () => {
     fetchProgressUpdates();
   }, [currentUserId]);
 
-  // Handle delete progress update
-  const handleDelete = async (id) => {
-    if (
-      window.confirm("Are you sure you want to delete this progress update?")
-    ) {
-      try {
-        await ProgressUpdateApi.deleteProgressUpdate(id);
-        setProgressUpdates(
-          progressUpdates.filter((update) => update.id !== id)
-        );
-        toast.success("Progress update deleted successfully");
-      } catch (error) {
-        console.error(error);
-        toast.error("Failed to delete progress update");
-      }
+  const confirmDelete = (id) => {
+    setDeleteId(id);
+    setShowConfirmModal(true);
+  };
+
+  const handleDeleteConfirmed = async () => {
+    try {
+      await ProgressUpdateApi.deleteProgressUpdate(deleteId);
+      setProgressUpdates(progressUpdates.filter((update) => update.id !== deleteId));
+      toast.success("Progress update deleted successfully");
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to delete progress update");
+    } finally {
+      setShowConfirmModal(false);
+      setDeleteId(null);
     }
   };
 
-  // Format date to readable format
   const formatDate = (dateString) => {
     const options = {
       year: "numeric",
@@ -95,121 +105,156 @@ const ProgressPage = () => {
       ) : (
         <div className="space-y-6">
           {progressUpdates.map((update) => (
-           <div
-           key={update.id}
-           className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition hover:shadow-md"
-         >
-           {/* Header */}
-           <div className="flex items-start justify-between px-6 py-4 border-b border-gray-100">
-             <Link
-               to={
-                 currentUserId === update.user.id
-                   ? "/profile"
-                   : `/profile/${update.user.id}`
-               }
-             >
-               <div className="flex items-center gap-3">
-                 <img
-                   src={update.user.profileImageUrl || "https://via.placeholder.com/40"}
-                   alt={update.user.username}
-                   className="w-10 h-10 rounded-full object-cover"
-                 />
-                 <div>
-                   <p className="font-semibold text-gray-900">{update.user.username}</p>
-                   <p className="text-sm text-gray-500">{formatDate(update.createdAt)}</p>
-                 </div>
-               </div>
-             </Link>
-         
-             {update.user.id === currentUserId && (
-               <div className="flex items-center gap-2">
-                 <button
-                   onClick={() => navigate(`/edit-progress/${update.id}`)}
-                   className="text-blue-600 hover:text-blue-800"
-                   title="Edit"
-                 >
-                   <PencilIcon className="w-5 h-5" />
-                 </button>
-                 <button
-                   onClick={() => handleDelete(update.id)}
-                   className="text-red-600 hover:text-red-800"
-                   title="Delete"
-                 >
-                   <TrashIcon className="w-5 h-5" />
-                 </button>
-               </div>
-             )}
-           </div>
-         
-           {/* Content */}
-           <div className="px-6 py-4 space-y-4">
-             <div className="flex justify-between items-start">
-               <h2 className="text-lg font-semibold text-gray-800">{update.title}</h2>
-               <span
-                 className={`text-xs font-medium px-2 py-1 rounded-full ${
-                   update.type === "MILESTONE"
-                     ? "bg-purple-100 text-purple-700"
-                     : update.type === "DAILY_UPDATE"
-                     ? "bg-blue-100 text-blue-700"
-                     : update.type === "CHALLENGE"
-                     ? "bg-blue-100 text-blue-700"
-                     : "bg-gray-100 text-gray-700"
-                 }`}
-               >
-                 {update.type.toLowerCase().replace("_", " ")}
-               </span>
-             </div>
-         
-             <p className="text-gray-700 whitespace-pre-line">{update.content}</p>
-         
-             {/* Metadata */}
-             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500">
-               <span className="flex items-center gap-1">
-                 <ClockIcon className="w-4 h-4" />
-                 {update.hoursSpent} hours spent
-               </span>
-               {update.rating && (
-                 <span className="flex items-center gap-1">
-                   <StarIcon className="w-4 h-4 text-yellow-400" />
-                   Rating: {update.rating}/5
-                 </span>
-               )}
-              
-             </div>
-         
-             {/* Challenges and Achievements */}
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-               {update.challenges.length > 0 && (
-                 <div className="bg-red-50 p-4 rounded-lg">
-                   <h3 className="text-red-700 font-medium mb-2 flex items-center gap-1">
-                     <Workflow className="w-4 h-4" />
-                     Challenges
-                   </h3>
-                   <ul className="list-disc list-inside text-sm text-red-700 space-y-1">
-                     {update.challenges.map((challenge, i) => (
-                       <li key={i}>{challenge}</li>
-                     ))}
-                   </ul>
-                 </div>
-               )}
-               {update.achievements.length > 0 && (
-                 <div className="bg-green-50 p-4 rounded-lg">
-                   <h3 className="text-green-700 font-medium mb-2 flex items-center gap-1">
-                     <CheckCircleIcon className="w-4 h-4" />
-                     Achievements
-                   </h3>
-                   <ul className="list-disc list-inside text-sm text-green-700 space-y-1">
-                     {update.achievements.map((achievement, i) => (
-                       <li key={i}>{achievement}</li>
-                     ))}
-                   </ul>
-                 </div>
-               )}
-             </div>
-           </div>
-         </div>
-         
+            <div
+              key={update.id}
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden transition hover:shadow-md"
+            >
+              {/* Header */}
+              <div className="flex items-start justify-between px-6 py-4 border-b border-gray-100">
+                <Link
+                  to={
+                    currentUserId === update.user.id
+                      ? "/profile"
+                      : `/profile/${update.user.id}`
+                  }
+                >
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={
+                        update.user.profileImageUrl || "https://via.placeholder.com/40"
+                      }
+                      alt={update.user.username}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                    <div>
+                      <p className="font-semibold text-gray-900">
+                        {update.user.username}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        {formatDate(update.createdAt)}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+
+                {update.user.id === currentUserId && (
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => navigate(`/edit-progress/${update.id}`)}
+                      className="text-blue-600 hover:text-blue-800"
+                      title="Edit"
+                    >
+                      <PencilIcon className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={() => confirmDelete(update.id)}
+                      className="text-red-600 hover:text-red-800"
+                      title="Delete"
+                    >
+                      <TrashIcon className="w-5 h-5" />
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {/* Content */}
+              <div className="px-6 py-4 space-y-4">
+                <div className="flex justify-between items-start">
+                  <h2 className="text-lg font-semibold text-gray-800">{update.title}</h2>
+                  <span
+                    className={`text-xs font-medium px-2 py-1 rounded-full ${
+                      update.type === "MILESTONE"
+                        ? "bg-purple-100 text-purple-700"
+                        : update.type === "DAILY_UPDATE"
+                        ? "bg-blue-100 text-blue-700"
+                        : update.type === "CHALLENGE"
+                        ? "bg-blue-100 text-blue-700"
+                        : "bg-gray-100 text-gray-700"
+                    }`}
+                  >
+                    {update.type.toLowerCase().replace("_", " ")}
+                  </span>
+                </div>
+
+                <p className="text-gray-700 whitespace-pre-line">{update.content}</p>
+
+                {/* Metadata */}
+                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500">
+                  <span className="flex items-center gap-1">
+                    <ClockIcon className="w-4 h-4" />
+                    {update.hoursSpent} hours spent
+                  </span>
+                  {update.rating && (
+                    <span className="flex items-center gap-1">
+                      <StarIcon className="w-4 h-4 text-yellow-400" />
+                      Rating: {update.rating}/5
+                    </span>
+                  )}
+                </div>
+
+                {/* Challenges and Achievements */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {update.challenges.length > 0 && (
+                    <div className="bg-red-50 p-4 rounded-lg">
+                      <h3 className="text-red-700 font-medium mb-2 flex items-center gap-1">
+                        <Workflow className="w-4 h-4" />
+                        Challenges
+                      </h3>
+                      <ul className="list-disc list-inside text-sm text-red-700 space-y-1">
+                        {update.challenges.map((challenge, i) => (
+                          <li key={i}>{challenge}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {update.achievements.length > 0 && (
+                    <div className="bg-green-50 p-4 rounded-lg">
+                      <h3 className="text-green-700 font-medium mb-2 flex items-center gap-1">
+                        <CheckCircleIcon className="w-4 h-4" />
+                        Achievements
+                      </h3>
+                      <ul className="list-disc list-inside text-sm text-green-700 space-y-1">
+                        {update.achievements.map((achievement, i) => (
+                          <li key={i}>{achievement}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
           ))}
+        </div>
+      )}
+
+      {/* Confirmation Modal */}
+      {showConfirmModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm">
+            <h2 className="text-lg font-semibold text-gray-800 mb-2">
+              Delete Progress Update
+            </h2>
+            <p className="text-sm text-gray-600 mb-4">
+              Are you sure you want to delete this progress update? This action cannot be undone.
+            </p>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => {
+                  setShowConfirmModal(false);
+                  setDeleteId(null);
+                }}
+                className="px-4 py-2 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteConfirmed}
+                className="px-4 py-2 text-sm bg-red-600 text-white rounded hover:bg-red-700"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
