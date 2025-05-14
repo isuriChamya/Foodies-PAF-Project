@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="bg-blue-900 text-white text-sm py-2 px-6 flex justify-between items-center w-full">
         <div>
           <span className="mr-4">📞 01122562378</span>
-          <span>✉️ demo.mail@info.com</span>
+          <span>✉️ foodie.learn@info.com</span>
         </div>
         <div>
           <span>🌐 English</span>
