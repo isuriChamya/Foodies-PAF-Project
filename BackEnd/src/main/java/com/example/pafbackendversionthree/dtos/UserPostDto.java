@@ -24,7 +24,7 @@ public class UserPostDto {
         this.medias = medias;
     }
 
-    // Getters and Setters
+    // getters and setters
     public String getId() {
         return id;
     }
