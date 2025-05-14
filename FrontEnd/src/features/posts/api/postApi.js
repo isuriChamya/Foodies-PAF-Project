@@ -16,7 +16,7 @@ export default {
   },
 
   // Update an existing post 
-  
+
   async updatePost(postId, postData) {
     try {
       const response = await apiClient.put(`/posts/${postId}`, postData);
@@ -30,7 +30,7 @@ export default {
     }
   },
 
-  // Delete a post
+  // Delete a post in application
   async deletePost(postId) {
     try {
       await apiClient.delete(`/posts/${postId}`);
