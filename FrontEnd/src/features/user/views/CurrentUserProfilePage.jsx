@@ -144,8 +144,8 @@ const CurrentUserProfilePage = () => {
     if (!user) return <div className="h-screen flex justify-center items-center text-lg text-gray-700">Loading...</div>;
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-100 to-white flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-            <div className="w-full max-w-5xl bg-white shadow-xl rounded-2xl p-10">
+        <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-5xl bg-blue-100 shadow-xl rounded-2xl p-10">
                 <h2 className="text-4xl font-bold text-center text-blue-900 mb-8">My Profile</h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0">
