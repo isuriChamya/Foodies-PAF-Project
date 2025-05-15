@@ -1,8 +1,8 @@
 package com.example.pafbackendversionthree.listeners;
 
-import com.example.pafbackendversionthree.models.Comment;
-import com.example.pafbackendversionthree.models.Like;
-import com.example.pafbackendversionthree.services.NotificationService;
+//import com.example.pafbackendversionthree.models.Comment;
+//import com.example.pafbackendversionthree.models.Like;
+//import com.example.pafbackendversionthree.services.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
