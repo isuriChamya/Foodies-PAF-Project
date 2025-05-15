@@ -12,10 +12,10 @@ public class UserRelationship {
     private String id;
 
     @DBRef
-    private AppUser follower;  // The user who is following
+    private AppUser follower;  // The user who is following the application
 
     @DBRef
-    private AppUser following; // The user being followed
+    private AppUser following; // The user being followed the application
 
     private Date createdAt;
     private Date updatedAt;
