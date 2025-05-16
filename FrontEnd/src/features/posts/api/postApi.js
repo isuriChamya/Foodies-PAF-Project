@@ -3,6 +3,9 @@ import apiClient from "../../../configs/axiosConfig";
 export default {
   // Create a new post
   async createPost(userId, postData) {
+    console.log("userId:", userId);
+    console.log("Creating post with data:", postData);
+
     try {
       const response = await apiClient.post(`/posts?userId=${userId}`, postData);
       return response.data;
@@ -64,7 +67,11 @@ export default {
   // Get all posts
   async getAllPosts() {
     try {
-      const response = await apiClient.get("/posts");
+      const response = await apiClient.get(`/posts/getAllPosts`);
+      console.log("Response data:", response.data);
+      if (response.status !== 200) {
+        throw new Error("Failed to fetch posts");
+      }
       return response.data;
     } catch (error) {
       let errorMessage = "Failed to fetch posts";
@@ -72,6 +79,7 @@ export default {
         errorMessage = error.response.data.message || errorMessage;
       }
       throw new Error(errorMessage);
+
     }
   },
 
@@ -89,3 +97,4 @@ export default {
     }
   }
 };
+

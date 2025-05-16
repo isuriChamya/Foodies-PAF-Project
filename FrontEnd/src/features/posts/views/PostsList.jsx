@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import PostCard from './PostCard';
 import postApi from '../api/postApi';
 
-const PostsList = ({ posts, onUpdateClicked, onDeleteSuccess }) => {
+const PostsList = ({ posts, onUpdateClicked, onDeleteSuccess}) => {
+  console.log('PostsList component rendered with posts:', posts);
+  
   const [showModal, setShowModal] = useState(false);
   const [postToDelete, setPostToDelete] = useState(null);
 

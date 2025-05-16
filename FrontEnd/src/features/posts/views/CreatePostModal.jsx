@@ -7,6 +7,12 @@ Modal.setAppElement("#root");
 
 const CreatePostModal = ({ onRefresh }) => {
   const userId = localStorage.getItem("userId");
+  if (!userId) {
+    console.error("User ID not found in local storage");
+  }
+  if (userId) {
+    console.log("User ID from local storage:", userId);
+  }
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -91,6 +97,8 @@ const CreatePostModal = ({ onRefresh }) => {
       return;
     }
 
+    console.log("Form data before submission:", formData);
+    console.log("User ID:", userId);
     setIsLoading(true);
     try {
       await postApi.createPost(userId, formData);
@@ -111,7 +119,9 @@ const CreatePostModal = ({ onRefresh }) => {
     }));
   };
 
+
   return (
+  
     <>
       <button
         onClick={() => setIsOpen(true)}
@@ -235,3 +245,4 @@ const CreatePostModal = ({ onRefresh }) => {
 };
 
 export default CreatePostModal;
+ 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+ import { useEffect, useState } from "react";
 import CreatePostModal from "./CreatePostModal";
 import UpdatePostModal from "./UpdatePostModal";
 import postApi from "../api/postApi";
@@ -51,3 +51,5 @@ const PostPage = () => {
 };
 
 export default PostPage;
+ 
+
